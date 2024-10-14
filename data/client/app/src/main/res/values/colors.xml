@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Основные цвета -->
+    <color name="background_color">#FDEDED</color> <!-- Светло-розовый фон -->
+    <color name="icon_color">#8B4513</color> <!-- Коричневый цвет для иконок -->
+    <color name="text_color">#8B4513</color> <!-- Коричневый цвет для текста -->
+    <color name="nav_bar_color">#A0522D</color> <!-- Темно-коричневый цвет для нижней панели навигации -->
 </resources>
