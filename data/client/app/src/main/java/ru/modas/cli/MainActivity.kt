@@ -10,13 +10,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Инициализация нижней панели навигации
-        val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
-
-        // По умолчанию отображаем главный экран с пользователем
+        // По умолчанию загружаем главный экран
         loadFragment(MainFragment())
 
-        // Настройка навигации при нажатии на кнопки нижней панели
+        // Настройка нижней панели навигации
+        val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_settings -> loadFragment(SettingsFragment())
@@ -27,11 +25,27 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Функция для загрузки фрагмента
     private fun loadFragment(fragment: Fragment) {
-        supportFragmentManager
-            .beginTransaction()
+        supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null)  // Добавляем фрагменты в стек для поддержки кнопки "Назад"
             .commit()
+    }
+
+    // Поддержка кнопки "Назад" в верхнем меню
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
+    // Обрабатываем системную кнопку "Назад"
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount > 1) {
+            // Возвращаемся к предыдущему фрагменту
+            supportFragmentManager.popBackStack()
+        } else {
+            // Если стек пуст, завершаем активность
+            finish()
+        }
     }
 }
