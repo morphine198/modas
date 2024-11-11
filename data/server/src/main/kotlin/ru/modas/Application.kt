@@ -21,9 +21,9 @@ fun main() {
 
     val pwd = "/home/moilenke/mds"
 
-    val url = File(pwd, "url.mds").readText()
-    val usr = File(pwd, "usr.mds").readText()
-    val psswd = File(pwd, "psswd.mds").readText()
+    val url = (File(pwd, "url.mds").readText()).trim()
+    val usr = (File(pwd, "usr.mds").readText()).trim()
+    val psswd = (File(pwd, "psswd.mds").readText()).trim()
 
     Database.connect(
         url,
