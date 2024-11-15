@@ -7,23 +7,27 @@ import io.ktor.server.engine.*
 import org.jetbrains.exposed.sql.Database
 import ru.modas.features.login.configureLoginRouting
 import ru.modas.features.register.configureRegisterRouting
+import ru.modas.utils.ResourceReader
 import java.io.File
+import java.io.InputStream
 
 fun main() {
 
-    // Для этого всего нужно сделать свой конфиг файл
-    /*print("Port: ")
-    val port = readLine() // 8080
-    print("Host: ")
-    val host = readLine() // "0.0.0.0"
-    print("Directory for .mds: ")
-    val pwd = readLine() //"<path>/mds"*/
+    // Можно запихнуть в отдельный класс/функцию ------------------------------------------------------------>
+    val inputStream: InputStream = ResourceReader().readTextResource("config.txt").byteInputStream()
+    val lineList = mutableListOf<String>()
 
-    val pwd = "/home/moilenke/mds"
+    inputStream.bufferedReader().forEachLine { lineList.add(it) }
+    lineList.forEach{it.trim()}
+    // ------------------------------------------------------------------------------------------------------>
+
+    // Это нужно сделать чуть поумнее -------------------------->
+    val pwd = lineList[0]
 
     val url = (File(pwd, "url.mds").readText()).trim()
     val usr = (File(pwd, "usr.mds").readText()).trim()
     val psswd = (File(pwd, "psswd.mds").readText()).trim()
+    // --------------------------------------------------------->
 
     Database.connect(
         url,
@@ -32,8 +36,7 @@ fun main() {
         password = psswd
     )
 
-    // port и host нужно поменять на вводимые значения
-    embeddedServer(CIO, port = 8080, host = "0.0.0.0", module = Application::module)
+    embeddedServer(CIO, port = lineList[1].toInt(), host = lineList[2], module = Application::module)
         .start(wait = true)
 }
 
