@@ -1,0 +1,3 @@
+/home/moilenke/mds
+8080
+0.0.0.0
