@@ -1,5 +1,7 @@
 package ru.modas.database.users
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 
@@ -18,16 +20,23 @@ object Model: Table("users") {
         }
     }
 
-    fun fetch(login: String): DTO? {
-        //return try {
-            val model = Model.selectAll().where { Model.login.eq(login) }.single()
-            return DTO(
-                login = model[Model.login],
-                password = model[Model.password],
-                email = model[Model.email],
-            )
-        //} catch (e: Exception) {
-            //null
-        //}
+    suspend fun fetch(login: String): DTO? {
+        return withContext(Dispatchers.IO) {
+            try {
+                transaction {
+                    val model = Model.selectAll().andWhere { Model.login eq login }.singleOrNull()
+                    model?.let {
+                        DTO(
+                            login = it[Model.login],
+                            password = it[Model.password],
+                            email = it[Model.email],
+                        )
+                    }
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                null
+            }
+        }
     }
 }
