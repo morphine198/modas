@@ -12,33 +12,30 @@ import java.util.*
 class Controller (private val call: ApplicationCall) {
     suspend fun registerUser () {
         val receive = call.receive<DataReceive>()
-        val userDTO = Model.fetch(receive.login)
 
+        // 'Проверка' валидности email
         if (!receive.email.isValidEmail()) {
             call.respond(HttpStatusCode.BadRequest, "Email is not valid")
+            return
         }
 
+        // Проверка повтора login
+        val userDTO = Model.fetch(receive.login)
         if (userDTO != null) {
             call.respond(HttpStatusCode.Conflict, "User already exists")
-        } else {
-            //val token = UUID.randomUUID().toString()
-
-            Model.insert(
-                DTO(
-                    login = receive.login,
-                    password = receive.password,
-                    email = receive.email,
-                )
-            )
-
-            /*InMemoryCache.token.add(
-                TokenCache(
-                    login = receive.login,
-                    token = token
-                )
-            )*/
-
-            call.respond(DataResponse(token = UUID.randomUUID().toString()))
+            return
         }
+
+        // Вставка данных нового пользователя
+        Model.insert(
+            DTO(
+                login = receive.login,
+                password = receive.password,
+                email = receive.email,
+            )
+        )
+
+        // Отправка токена
+        call.respond(DataResponse(token = UUID.randomUUID().toString()))
     }
 }
