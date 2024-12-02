@@ -6,9 +6,9 @@ import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 
 object Model: Table("users") {
-    private val login = Model.varchar("login", 64)
-    private val password = Model.varchar("password", 256)
-    private val email = Model.varchar("email", 128)
+    val login = Model.varchar("login", 64)
+    val password = Model.varchar("password", 256)
+    val email = Model.varchar("email", 128)
 
     fun insert(dto: DTO) {
         transaction {
@@ -24,7 +24,7 @@ object Model: Table("users") {
         return withContext(Dispatchers.IO) {
             try {
                 transaction {
-                    val model = Model.selectAll().andWhere { Model.login eq login }.singleOrNull()
+                    val model = Model.selectAll().where { Model.login eq login }.singleOrNull()
                     model?.let {
                         DTO(
                             login = it[Model.login],
