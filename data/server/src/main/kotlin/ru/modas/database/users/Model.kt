@@ -6,6 +6,7 @@ import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 
 object Model: Table("users") {
+    // Лучше в public не переводить, так как, возможно, это ломает fetch запросы
     val login = Model.varchar("login", 64)
     val password = Model.varchar("password", 256)
     val email = Model.varchar("email", 128)
