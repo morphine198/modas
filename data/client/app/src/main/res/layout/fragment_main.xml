@@ -28,8 +28,8 @@
         android:id="@+id/list_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/background_color"
         android:divider="@color/icon_color"
-        android:dividerHeight="1dp"
-        android:background="@color/background_color"/>
+        android:dividerHeight="1dp" />
 
 </LinearLayout>
