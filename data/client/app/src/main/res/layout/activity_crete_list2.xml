@@ -30,50 +30,60 @@
 
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/etName"
-        android:layout_width="272dp"
-        android:layout_height="61dp"
-        android:hint="Имя"
+        android:id="@+id/etStr"
+        android:layout_width="271dp"
+        android:layout_height="44dp"
+        android:hint="Сила"
         android:paddingLeft="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="20dp" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/etClass"
+        android:id="@+id/etDex"
         android:layout_width="272dp"
-        android:layout_height="50dp"
-        android:hint="Класс"
+        android:layout_height="42dp"
+        android:hint="Ловкость"
         android:paddingLeft="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="20dp" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/etOrigin"
+        android:id="@+id/etConst"
         android:layout_width="272dp"
-        android:layout_height="50dp"
-        android:hint="Происхождение"
+        android:layout_height="42dp"
+        android:hint="Телосложение"
         android:paddingLeft="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="20dp" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/etRace"
-        android:layout_width="272dp"
-        android:layout_height="50dp"
-        android:hint="Расса"
+        android:id="@+id/etInt"
+        android:layout_width="273dp"
+        android:layout_height="40dp"
+        android:hint="Интелект"
         android:paddingLeft="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="20dp" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/etWorldView"
+        android:id="@+id/etVisdom"
         android:layout_width="272dp"
-        android:layout_height="75dp"
-        android:hint="Мировозрение"
+        android:layout_height="40dp"
+        android:hint="Мудрость"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etHarisma"
+        android:layout_width="273dp"
+        android:layout_height="40dp"
+        android:hint="Харизма"
         android:paddingLeft="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
@@ -83,9 +93,9 @@
         android:id="@+id/btNext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="bottom"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="240dp"
         android:backgroundTint="@color/secondApp"
         android:onClick="signInClick"
         android:text="Далее"
@@ -97,7 +107,7 @@
         android:id="@+id/btBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="bottom"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="10dp"
         android:backgroundTint="@color/secondApp"

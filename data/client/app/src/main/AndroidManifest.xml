@@ -11,14 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileDDAssistant"
-        tools:targetApi="31"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
         <activity
-            android:name=".RegistrationActivity"
-             />
+            android:name=".CreteList_2"
+            android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            />
+            android:name=".CreateList_1"
+            android:exported="false" />
+        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".LoginActivity"
             android:exported="true">
