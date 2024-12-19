@@ -1,14 +1,13 @@
-package ru.modas.cli
+package ru.modas.cli.view
 
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.EditText
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import ru.modas.cli.R
 
 
 class RegistrationActivity : AppCompatActivity() {
@@ -25,7 +24,7 @@ class RegistrationActivity : AppCompatActivity() {
     }
 
     fun signInClick(view: View?) {
-        intent = Intent(this,LoginActivity::class.java)
+        intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
 
 

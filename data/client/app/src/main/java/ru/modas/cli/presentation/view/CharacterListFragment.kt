@@ -1,4 +1,4 @@
-package ru.modas.cli
+package ru.modas.cli.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
+import ru.modas.cli.R
 
 class CharacterListFragment : Fragment() {
 

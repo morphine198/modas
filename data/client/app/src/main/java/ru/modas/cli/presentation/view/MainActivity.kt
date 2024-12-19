@@ -1,4 +1,4 @@
-package ru.modas.cli
+package ru.modas.cli.view
 import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
+import ru.modas.cli.R
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package ru.modas.cli
+package ru.modas.cli.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.Fragment
+import ru.modas.cli.R
 
 class MainFragment : Fragment() {
 
