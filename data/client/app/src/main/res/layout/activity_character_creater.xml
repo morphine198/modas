@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/app">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:src="@drawable/title_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DnD Assistant"
+            android:textColor="@color/black"
+            android:textSize="40dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etName"
+        android:layout_width="272dp"
+        android:layout_height="61dp"
+        android:hint="Имя"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etClass"
+        android:layout_width="272dp"
+        android:layout_height="50dp"
+        android:hint="Класс"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etOrigin"
+        android:layout_width="272dp"
+        android:layout_height="50dp"
+        android:hint="Происхождение"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etRace"
+        android:layout_width="272dp"
+        android:layout_height="50dp"
+        android:hint="Расса"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etWorldView"
+        android:layout_width="272dp"
+        android:layout_height="75dp"
+        android:hint="Мировозрение"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btNext1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="220dp"
+        android:backgroundTint="@color/secondApp"
+        android:text="Далее"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:cornerRadius="15dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btBack1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/secondApp"
+        android:text="Назад"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:cornerRadius="15dp" />
+
+
+</LinearLayout>
