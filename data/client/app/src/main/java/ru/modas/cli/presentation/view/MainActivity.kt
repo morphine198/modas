@@ -1,5 +1,7 @@
-package ru.modas.cli.view
+package ru.modas.cli.presentation.view
+
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -8,11 +10,13 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import ru.modas.cli.R
+import ru.modas.cli.presentation.view.fragments.MainFragment
+import ru.modas.cli.presentation.vm.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
-    lateinit var toolbar: Toolbar
+    private val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +30,6 @@ class MainActivity : AppCompatActivity() {
         drawerLayout = findViewById(R.id.drawer_layout)
         val navigationView: NavigationView = findViewById(R.id.navigation_view)
 
-
         // Настройка кнопки "гамбургера" для открытия бокового меню
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, toolbar,
@@ -35,19 +38,25 @@ class MainActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-        // Устанавливаем главный фрагмент по умолчанию
-        loadFragment(MainFragment())
+        // Наблюдаем за выбранным фрагментом в ViewModel
+        observeViewModel()
 
         // Обработка нажатий на элементы бокового меню
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.nav_main -> loadFragment(MainFragment())
-                R.id.nav_settings -> loadFragment(SettingsFragment())
-                R.id.nav_wiki -> loadFragment(WikiFragment())
-                R.id.nav_new_list -> loadFragment(NewListFragment())
+                R.id.nav_main -> mainViewModel.onMenuItemSelected(MainViewModel.MenuItem.MAIN)
+                R.id.nav_settings -> mainViewModel.onMenuItemSelected(MainViewModel.MenuItem.SETTINGS)
+                R.id.nav_wiki -> mainViewModel.onMenuItemSelected(MainViewModel.MenuItem.WIKI)
+                R.id.nav_new_list -> mainViewModel.onMenuItemSelected(MainViewModel.MenuItem.NEW_LIST)
             }
             drawerLayout.closeDrawer(GravityCompat.START)
             true
+        }
+    }
+
+    private fun observeViewModel() {
+        mainViewModel.currentFragment.observe(this) { fragment ->
+            loadFragment(fragment)
         }
     }
 

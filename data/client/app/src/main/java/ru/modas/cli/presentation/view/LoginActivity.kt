@@ -4,29 +4,52 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import ru.modas.cli.R
-import ru.modas.cli.vm.LoginActivityVM
+import ru.modas.cli.presentation.view.MainActivity
+import ru.modas.cli.presentation.vm.LoginActivityVM
 
 class LoginActivity : AppCompatActivity() {
-    val loginActivityVM : LoginActivityVM = LoginActivityVM()
 
+    private val loginViewModel: LoginActivityVM by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_login)
 
-
+        observeViewModel()
     }
 
-    fun signUpClick(view: View?) {
-        loginActivityVM.signUp(this);
+    private fun observeViewModel() {
+        // Переход к MainActivity
+        loginViewModel.navigateToMain.observe(this, Observer { navigate ->
+            if (navigate) {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                loginViewModel.onNavigatedToMain()
+            }
+        })
+
+        // Переход к RegistrationActivity
+        loginViewModel.navigateToRegistration.observe(this, Observer { navigate ->
+            if (navigate) {
+                val intent = Intent(this, RegistrationActivity::class.java)
+                startActivity(intent)
+                loginViewModel.onNavigatedToRegistration()
+            }
+        })
     }
 
-    fun signInClick(view: View?) {
-        intent = Intent(this, LoginActivity::class.java)
-        startActivity(intent)
+    // Обработка кнопки "Войти"
+    fun onLoginClick(view: View?) {
+        loginViewModel.onLoginClicked()
+    }
 
+    // Обработка кнопки "Зарегистрироваться"
+    fun onRegisterClick(view: View?) {
+        loginViewModel.onRegisterClicked()
     }
 }

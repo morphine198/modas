@@ -1,4 +1,4 @@
-package ru.modas.cli.view
+package ru.modas.cli.presentation.view.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

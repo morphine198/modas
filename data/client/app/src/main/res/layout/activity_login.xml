@@ -86,7 +86,7 @@
         android:backgroundTint="@color/secondApp"
         android:text="Войти"
         android:textSize="25dp"
-        android:onClick="signInClick"
+        android:onClick="onLoginClick"
         android:textColor="@color/white"/>
 
     <com.google.android.material.button.MaterialButton
@@ -100,7 +100,7 @@
         android:backgroundTint="@color/secondApp"
         android:text="Зарегистрироваться"
         android:textSize="25dp"
-        android:onClick="signUpClick"
+        android:onClick="onRegisterClick"
         android:textColor="@color/white"/>
 
 </LinearLayout>

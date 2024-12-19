@@ -13,16 +13,10 @@
         android:theme="@style/Theme.MobileDDAssistant"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity android:name=".view.RegistrationActivity" />
+        <activity android:name=".presentation.view.MainActivity" />
         <activity
-            android:name=".CreteList_2"
-            android:exported="false" />
-        <activity
-            android:name=".CreateList_1"
-            android:exported="false" />
-        <activity android:name=".RegistrationActivity" />
-        <activity android:name=".MainActivity" />
-        <activity
-            android:name=".LoginActivity"
+            android:name=".view.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

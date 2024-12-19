@@ -30,60 +30,60 @@
 
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/etStr"
+        android:id="@+id/etProtect"
         android:layout_width="271dp"
         android:layout_height="44dp"
-        android:hint="Сила"
+        android:hint="Класс Защиты"
         android:paddingLeft="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="20dp" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/etDex"
+        android:id="@+id/etInit"
         android:layout_width="272dp"
         android:layout_height="42dp"
-        android:hint="Ловкость"
+        android:hint="Инициатива"
         android:paddingLeft="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="20dp" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/etConst"
+        android:id="@+id/etSpeed"
         android:layout_width="272dp"
         android:layout_height="42dp"
-        android:hint="Телосложение"
+        android:hint="Скорость"
         android:paddingLeft="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="20dp" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/etInt"
+        android:id="@+id/etMaxHeat"
         android:layout_width="273dp"
         android:layout_height="40dp"
-        android:hint="Интелект"
+        android:hint="Макс Хиты"
         android:paddingLeft="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="20dp" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/etVisdom"
+        android:id="@+id/etTimeHeats"
         android:layout_width="272dp"
         android:layout_height="40dp"
-        android:hint="Мудрость"
+        android:hint="Временные Хиты"
         android:paddingLeft="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="20dp" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/etHarisma"
+        android:id="@+id/etHeatDice"
         android:layout_width="273dp"
         android:layout_height="40dp"
-        android:hint="Харизма"
+        android:hint="Кость Хитов"
         android:paddingLeft="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
