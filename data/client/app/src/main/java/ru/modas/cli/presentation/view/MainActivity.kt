@@ -1,5 +1,6 @@
 package ru.modas.cli.presentation.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -10,6 +11,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import ru.modas.cli.R
+import ru.modas.cli.presentation.view.fragments.CharacterCreater
 import ru.modas.cli.presentation.view.fragments.MainFragment
 import ru.modas.cli.presentation.vm.MainViewModel
 
@@ -47,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_main -> mainViewModel.onMenuItemSelected(MainViewModel.MenuItem.MAIN)
                 R.id.nav_settings -> mainViewModel.onMenuItemSelected(MainViewModel.MenuItem.SETTINGS)
                 R.id.nav_wiki -> mainViewModel.onMenuItemSelected(MainViewModel.MenuItem.WIKI)
-                R.id.nav_new_list -> mainViewModel.onMenuItemSelected(MainViewModel.MenuItem.NEW_LIST)
+                R.id.nav_new_list -> openCharacterCreator()
             }
             drawerLayout.closeDrawer(GravityCompat.START)
             true
@@ -78,4 +80,9 @@ class MainActivity : AppCompatActivity() {
             super.onBackPressed()
         }
     }
+    private fun openCharacterCreator() {
+        val intent = Intent(this, CharacterCreater::class.java)
+        startActivity(intent)
+    }
 }
+

@@ -13,6 +13,15 @@
         android:theme="@style/Theme.MobileDDAssistant"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".presentation.view.fragments.ListPart2"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.view.fragments.ListPart1"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.view.fragments.CharacterCreater"
+            android:exported="false" />
         <activity android:name=".view.RegistrationActivity" />
         <activity android:name=".presentation.view.MainActivity" />
         <activity
