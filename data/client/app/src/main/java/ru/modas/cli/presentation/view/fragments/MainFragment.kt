@@ -25,7 +25,14 @@ class MainFragment : Fragment() {
         listView.adapter = adapter
 
         // Обработка клика по элементу списка
-
+        listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, _, _ ->
+            // Переход на экран со списком персонажей
+            requireActivity().supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragment_container, CharacterDetailFragment())
+                .addToBackStack(null)
+                .commit()
+        }
 
         return view
     }
