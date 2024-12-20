@@ -4,8 +4,8 @@ import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
-import ru.modas.database.users.DTO
-import ru.modas.database.users.Model
+import ru.modas.database.account.users.DRO
+import ru.modas.database.account.users.Model
 import ru.modas.utils.isValidEmail
 import java.util.*
 
@@ -28,7 +28,7 @@ class Controller (private val call: ApplicationCall) {
 
         // Вставка данных нового пользователя
         Model.insert(
-            DTO(
+            DRO(
                 login = receive.login,
                 password = receive.password,
                 email = receive.email,

@@ -1,5 +1,6 @@
-package ru.modas.database.sessions
+package ru.modas.database.account.sessions
 
 class DTO (
+    val id_user: Int,
     val token: String,
 )

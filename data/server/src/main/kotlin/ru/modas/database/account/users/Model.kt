@@ -1,4 +1,4 @@
-package ru.modas.database.users
+package ru.modas.database.account.users
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -7,16 +7,17 @@ import org.jetbrains.exposed.sql.transactions.transaction
 
 object Model: Table("users") {
     // Лучше в public не переводить, так как, возможно, это ломает fetch запросы
+    val id_user = Model.integer("id_user")
     val login = Model.varchar("login", 64)
     val password = Model.varchar("password", 256)
     val email = Model.varchar("email", 128)
 
-    fun insert(dto: DTO) {
+    fun insert(dro: DRO) {
         transaction {
             Model.insert {
-                it[login] = dto.login
-                it[password] = dto.password
-                it[email] = dto.email
+                it[login] = dro.login
+                it[password] = dro.password
+                it[email] = dro.email
             }
         }
     }
@@ -28,9 +29,10 @@ object Model: Table("users") {
                     val model = Model.selectAll().where { Model.login eq login }.singleOrNull()
                     model?.let {
                         DTO(
+                            id_user = it[Model.id_user],
                             login = it[Model.login],
-                            password = it[Model.password],
-                            email = it[Model.email],
+                            password = it[password],
+                            email = it[email],
                         )
                     }
                 }
