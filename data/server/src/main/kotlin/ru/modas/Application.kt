@@ -5,6 +5,7 @@ import io.ktor.server.application.*
 import io.ktor.server.cio.*
 import io.ktor.server.engine.*
 import org.jetbrains.exposed.sql.Database
+import ru.modas.features.create.configureCreateSheetRouting
 import ru.modas.features.login.configureLoginRouting
 import ru.modas.features.register.configureRegisterRouting
 import ru.modas.utils.ResourceReader
@@ -45,4 +46,5 @@ fun Application.module() {
     configureRouting()
     configureRegisterRouting()
     configureLoginRouting()
+    configureCreateSheetRouting()
 }
