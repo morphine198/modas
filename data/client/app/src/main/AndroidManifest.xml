@@ -14,27 +14,25 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.view.fragments.CharacterDetailFragment"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.view.fragments.ListPart2"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.view.fragments.ListPart1"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.view.fragments.CharacterCreater"
-            android:exported="false" />
-        <activity android:name=".view.RegistrationActivity" />
-        <activity android:name=".presentation.view.MainActivity" />
-        <activity
-            android:name=".view.LoginActivity"
-            android:exported="true">
+            android:name=".presentation.view.LoginActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".presentation.view.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.view.CharactersListActivity"
+            android:exported="false">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
         </activity>
     </application>
 

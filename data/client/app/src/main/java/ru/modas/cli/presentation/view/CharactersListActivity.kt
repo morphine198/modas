@@ -1,33 +1,27 @@
 package ru.modas.cli.presentation.view
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import ru.modas.cli.R
 
-class LoginActivity : AppCompatActivity() {
+class CharactersListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_characters_list)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-    }
-
-    // Обработка кнопки "Авторизоваться"
-    fun onLoginClick(view: View?) {
-        startActivity(Intent(this, CharactersListActivity::class.java))
-    }
-
-    // Обработка кнопки "Зарегистрироваться"
-    fun onRegisterClick(view: View?) {
-        startActivity(Intent(this, RegisterActivity::class.java))
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = CharacterAdapter(listOf("Персонаж 1", "Персонаж 2", "Персонаж 3"))
     }
 }
