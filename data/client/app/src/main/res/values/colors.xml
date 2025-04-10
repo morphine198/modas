@@ -6,7 +6,7 @@
     <color name="icon_color">#65558E</color> <!-- Коричневый цвет для иконок -->
     <color name="text_color">#000000</color> <!-- Коричневый цвет для текста -->
     <color name="button_color">#65558E</color>
-    <color name="nav_bar_color">#65558E</color>
+    <color name="nav_bar_color">#65558E</color> <!-- ??? -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="app">#fcfbb1</color>
@@ -14,5 +14,5 @@
     <color name="bottomMenu">#e3b749</color>
     <color name="cards">#f0d698</color>
     <color name="text">#333333</color>
-    <color name="transparent">#0000ffff</color><!-- Темно-коричневый цвет для нижней панели навигации -->
+    <color name="transparent">#EAE5EE</color> <!-- Цвет для нижней панели навигации -->
 </resources>

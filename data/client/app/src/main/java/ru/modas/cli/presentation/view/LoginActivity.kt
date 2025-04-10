@@ -23,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
 
     // Обработка кнопки "Авторизоваться"
     fun onLoginClick(view: View?) {
-        startActivity(Intent(this, CharactersListActivity::class.java))
+        startActivity(Intent(this, MainActivity::class.java))
     }
 
     // Обработка кнопки "Зарегистрироваться"
