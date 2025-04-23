@@ -35,13 +35,15 @@
                 android:layout_gravity="center_vertical"
                 android:padding="8dp"/>
 
-            <EditText
-                android:id="@+id/searchEditText"
+            <AutoCompleteTextView
+                android:id="@+id/searchAutoCompleteText"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical"
                 android:hint="Введите имя персонажа"
+                android:inputType="text"
+                android:imeOptions="actionDone"
                 android:backgroundTint="@color/bars_color"
                 android:background="@drawable/bg_style_rounded"
                 android:padding="8dp"/>
@@ -56,7 +58,18 @@
                 android:padding="8dp"
                 android:visibility="gone"/>
 
+
         </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="8dp"
+            android:visibility="gone" />
+
 
         <!-- Список -->
         <androidx.recyclerview.widget.RecyclerView

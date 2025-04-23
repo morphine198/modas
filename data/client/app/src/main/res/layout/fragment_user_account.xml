@@ -71,14 +71,26 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <!-- Кнопка Зарегистрироваться -->
+            <!-- Кнопка Подтвержления -->
             <Button
-                android:id="@+id/btnRegister"
+                android:id="@+id/btnAccept"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginVertical="16dp"
                 android:background="@drawable/bg_button"
                 android:text="Подтвердить изменения"
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <!-- Кнопка Смены Темы -->
+            <Button
+                android:id="@+id/btnChangeTheme"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginVertical="16dp"
+                android:background="@drawable/bg_button"
+                android:text="Сменить тему"
                 android:textColor="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
