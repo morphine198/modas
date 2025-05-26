@@ -1,1 +1,0 @@
-Mobile D&D Assistant
