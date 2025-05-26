@@ -1,7 +1,0 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.MobileDDAssistant" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <item name="colorPrimary">@color/nav_bar_color</item>
-    </style>
-</resources>
