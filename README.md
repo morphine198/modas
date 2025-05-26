@@ -1,1 +1,1 @@
-Mobile D&D Assistant
+Mobile D&D Assistant Server
