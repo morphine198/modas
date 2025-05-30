@@ -1,6 +1,8 @@
 package ru.modas.database.account.sessions
 
+import java.time.Instant
+
 class DTO (
-    val id_user: Int,
     val token: String,
+    val login: String,
 )

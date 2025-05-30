@@ -4,8 +4,10 @@ import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
-import ru.modas.database.account.users.DRO
-import ru.modas.database.account.users.Model
+import ru.modas.database.account.users.DTO as userDTO
+import ru.modas.database.account.users.Model as userModel
+import ru.modas.database.account.sessions.DTO as sessionDTO
+import ru.modas.database.account.sessions.Model as sessionModel
 import ru.modas.utils.isValidEmail
 import java.util.*
 
@@ -20,15 +22,15 @@ class Controller (private val call: ApplicationCall) {
         }
 
         // Проверка повтора login
-        val userDTO = Model.fetch(receive.login)
+        val userDTO = userModel.fetch(receive.login)
         if (userDTO != null) {
             call.respond(HttpStatusCode.Conflict, "User already exists")
             return
         }
 
         // Вставка данных нового пользователя
-        Model.insert(
-            DRO(
+        userModel.insert(
+            userDTO(
                 login = receive.login,
                 password = receive.password,
                 email = receive.email,
@@ -37,5 +39,12 @@ class Controller (private val call: ApplicationCall) {
 
         // Отправка токена
         call.respond(DataResponse(token = UUID.randomUUID().toString()))
+        // Вставка токена
+        sessionModel.insert(
+            sessionDTO(
+                token = UUID.randomUUID().toString(),
+                login = receive.login,
+            )
+        )
     }
 }
