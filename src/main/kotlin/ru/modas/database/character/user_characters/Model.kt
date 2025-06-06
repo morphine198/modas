@@ -3,37 +3,45 @@ package ru.modas.database.character.user_characters
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.jetbrains.exposed.sql.*
-import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 import ru.modas.database.account.users.Model as userModel
-import ru.modas.database.character.templates.Model as templateModel
 
 object Model: Table("user_characters") {
-    val name =  Model.varchar("name", 256)
-    val login = Model.reference("login", userModel.login)
-    val id_template = Model.reference("id_template", templateModel.id_template)
+    val login = reference("login", userModel.login)
+    val id_sheet = integer("id_sheet")
+    val character_name = varchar("character_name", 256)
 
-    override val primaryKey = PrimaryKey(Model.login,Model.id_template)
+
+    override val primaryKey = PrimaryKey(login, id_sheet)
 
     fun insert(dto: DTO) {
         transaction {
             Model.insert {
-                it[name] = dto.name
                 it[login] = dto.login
-                it[id_template] = dto.id_template
+                it[id_sheet] = dto.id_sheet
+                it[character_name] = dto.character_name
             }
         }
     }
 
-    suspend fun fetch(login: String): DRO? {
+    fun update(dto: DTO) {
+        transaction {
+            Model.update ({Model.id_sheet eq dto.id_sheet}) {
+                it[login] = dto.login
+                it[id_sheet] = dto.id_sheet
+                it[character_name] = dto.character_name
+            }
+        }
+    }
+
+    suspend fun fetch(login: String, id_sheet: Int): DRO? {
         return withContext(Dispatchers.IO) {
             try {
                 transaction {
-                    val model = Model.selectAll().where { Model.login eq login }.singleOrNull()
+                    val model = Model.selectAll().where { (Model.id_sheet eq id_sheet) and (Model.login eq login)}.singleOrNull()
                     model?.let {
                         DRO(
-                            name = it[name],
-                            id_template = it[id_template],
+                            character_name = it[Model.character_name],
                         )
                     }
                 }
@@ -44,15 +52,15 @@ object Model: Table("user_characters") {
         }
     }
 
-    suspend fun fetchAll(login: String): List<DRO>? {
+    suspend fun fetch(login: String): List<DRO_L>? {
         return withContext(Dispatchers.IO) {
             try {
                 transaction {
                     Model.selectAll().where { Model.login eq login }
                         .map {
-                            DRO(
-                                name = it[Model.name],
-                                id_template = it[Model.id_template]
+                            DRO_L(
+                                id_sheet = it[Model.id_sheet],
+                                character_name = it[Model.character_name],
                             )
                         }
                 }

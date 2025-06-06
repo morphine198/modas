@@ -5,12 +5,8 @@ import io.ktor.server.application.*
 import io.ktor.server.cio.*
 import io.ktor.server.engine.*
 import org.jetbrains.exposed.sql.Database
-import ru.modas.features.get.characters.configureGetCharactersRouting
-import ru.modas.features.get.sheet.configureGetSheetRouting
-import ru.modas.features.get.templates.configureGetTemplatesRouting
-import ru.modas.features.login.configureLoginRouting
-import ru.modas.features.register.configureRegisterRouting
-import ru.modas.features.set.characters.configureSetCharactersRouting
+import ru.modas.features.account.login.configureLoginRouting
+import ru.modas.features.account.register.configureRegisterRouting
 import ru.modas.utils.ResourceReader
 import java.io.File
 import java.io.InputStream
@@ -49,8 +45,4 @@ fun Application.module() {
     configureRouting()
     configureRegisterRouting()
     configureLoginRouting()
-    configureGetCharactersRouting()
-    configureGetSheetRouting()
-    configureGetTemplatesRouting()
-    configureSetCharactersRouting()
 }

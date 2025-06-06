@@ -1,6 +1,7 @@
 package ru.modas.database.character.items
 
-class DRO (
+class DTO_I (
+    val id_item: Int,
     val rank: Int,
     val collection: Int,
     val type: String,

@@ -1,6 +1,7 @@
 package ru.modas.database.character.templates
 
 class DTO (
-    val type: String,
-    val name: String,
+    val template_name: String,
+    val id_sheet: Int?,
+    val description: String?,
 )

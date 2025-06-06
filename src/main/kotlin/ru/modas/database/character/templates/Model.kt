@@ -4,51 +4,44 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
+import ru.modas.database.character.sheets.Model as sheetModel
 
 object Model: Table("templates") {
-    val id_template = Model.integer("id_template")
-    val type = Model.varchar("type", 128)
-    val name = Model.varchar("name", 256)
+    val template_name = varchar("template_name", 256)
+    val id_sheet = reference("id_sheet", sheetModel.id_sheet).nullable()
+    val description = varchar("description", 128).nullable()
 
-    override val primaryKey = PrimaryKey(id_template)
+    override val primaryKey = PrimaryKey(template_name)
 
     fun insert(dto: DTO) {
         transaction {
             Model.insert {
-                it[type] = dto.type
-                it[name] = dto.name
+                it[template_name] = dto.template_name
+                it[id_sheet] = dto.id_sheet
+                it[description] = dto.description
             }
         }
     }
 
-    suspend fun fetch(id_template: Int): DTO? {
-        return withContext(Dispatchers.IO) {
-            try {
-                transaction {
-                    val model = Model.selectAll().where { Model.id_template eq id_template }.singleOrNull()
-                    model?.let {
-                        DTO(
-                            type = it[Model.type],
-                            name = it[Model.name],
-                        )
-                    }
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
-                null
+    fun update(dto: DTO) {
+        transaction {
+            Model.update ({Model.template_name eq dto.template_name}) {
+                it[template_name] = dto.template_name
+                it[id_sheet] = dto.id_sheet
+                it[description] = dto.description
             }
         }
     }
 
-    suspend fun fetch(name: String): DRO? {
+    suspend fun fetch(template_name: String): DRO? {
         return withContext(Dispatchers.IO) {
             try {
                 transaction {
-                    val model = Model.selectAll().where { Model.name eq name }.singleOrNull()
+                    val model = Model.selectAll().where { Model.template_name eq template_name }.singleOrNull()
                     model?.let {
                         DRO(
-                            id_template = it[Model.id_template],
-                            name = it[Model.name],
+                            id_sheet = it[id_sheet],
+                            description = it[description],
                         )
                     }
                 }
@@ -59,15 +52,16 @@ object Model: Table("templates") {
         }
     }
 
-    suspend fun fetchAll(type: String): List<DRO>? {
+    suspend fun fetch(): List<DTO>? {
         return withContext(Dispatchers.IO) {
             try {
                 transaction {
-                    Model.selectAll().where { Model.type eq type }
+                    Model.selectAll()
                         .map {
-                            DRO(
-                                id_template = it[Model.id_template],
-                                name = it[Model.name],
+                            DTO(
+                                template_name = it[template_name],
+                                id_sheet = it[id_sheet],
+                                description = it[description],
                             )
                         }
                 }

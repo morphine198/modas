@@ -30,7 +30,6 @@ object Model: Table("users") {
                     val model = Model.selectAll().where { Model.login eq login }.singleOrNull()
                     model?.let {
                         DRO(
-                            login = it[Model.login],
                             email = it[email],
                             password = it[password],
                         )

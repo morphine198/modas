@@ -1,6 +1,6 @@
 package ru.modas.cache
 
-import ru.modas.features.register.DataReceive
+import ru.modas.features.account.register.DataReceive
 
 data class TokenCache(
     val login: String,
