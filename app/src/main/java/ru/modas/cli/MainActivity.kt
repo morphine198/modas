@@ -1,15 +1,14 @@
-package ru.modas.cli.presentation.view
+package ru.modas.cli
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import ru.modas.cli.R
-import ru.modas.cli.presentation.view.fragments.*
+import ru.modas.cli.fragments.CharactersListFragment
+import ru.modas.cli.fragments.UserAccountFragment
+import ru.modas.cli.fragments.WikiFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

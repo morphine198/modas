@@ -1,4 +1,4 @@
-package ru.modas.cli.presentation.view.fragments
+package ru.modas.cli.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import ru.modas.cli.R
 
-class UserAccountFragment : Fragment() {
+class WikiFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_user_account, container, false)
+        return inflater.inflate(R.layout.fragment_wiki, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

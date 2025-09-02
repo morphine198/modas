@@ -1,4 +1,4 @@
-package ru.modas.cli.presentation.view.fragments
+package ru.modas.cli.fragments
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -16,13 +16,12 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import ru.modas.cli.CharacterAdapter
 import ru.modas.cli.R
-import ru.modas.cli.presentation.view.CharacterAdapter
 
 class CharactersListFragment : Fragment() {
 

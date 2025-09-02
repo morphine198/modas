@@ -1,11 +1,10 @@
-package ru.modas.cli.presentation.view
+package ru.modas.cli
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import ru.modas.cli.R
 
 class CharacterAdapter(private val items: List<String>) :
     RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {

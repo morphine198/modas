@@ -7,12 +7,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color"
-    tools:context=".presentation.view.MainActivity">
+    tools:context=".MainActivity">
 
     <!-- Контейнер для фрагментов -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
-        android:name="ru.modas.cli.presentation.view.fragments.CharactersListFragment"
+        android:name="ru.modas.cli.fragments.CharactersListFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="16dp"
