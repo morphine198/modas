@@ -20,7 +20,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.modas.cli.CharacterAdapter
+import ru.modas.cli.adapters.CharacterAdapter
 import ru.modas.cli.R
 
 class CharactersListFragment : Fragment() {
@@ -125,7 +125,20 @@ class CharactersListFragment : Fragment() {
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext()) // Используем requireContext()
-        recyclerView.adapter = CharacterAdapter(listOf("Персонаж 1", "Персонаж 2", "Персонаж 3"))
+        recyclerView.adapter = CharacterAdapter(
+            listOf("Арагорн", "Гэндальф", "Леголас")
+        ) { characterName ->
+            // Переход к экрану характеристик
+            val fragment = CharacterStatsFragment()
+            val bundle = Bundle().apply {
+                putString("character_name", characterName)
+            }
+            fragment.arguments = bundle
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
     }
 
     // Функция для добавления нового запроса в историю поиска

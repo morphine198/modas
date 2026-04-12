@@ -1,4 +1,4 @@
-package ru.modas.cli
+package ru.modas.cli.network
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

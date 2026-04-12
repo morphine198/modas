@@ -1,4 +1,4 @@
-package ru.modas.cli
+package ru.modas.cli.activities
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import ru.modas.cli.R
 import ru.modas.cli.fragments.CharactersListFragment
 import ru.modas.cli.fragments.UserAccountFragment
 import ru.modas.cli.fragments.WikiFragment

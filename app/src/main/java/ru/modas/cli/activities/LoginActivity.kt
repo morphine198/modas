@@ -1,4 +1,4 @@
-package ru.modas.cli
+package ru.modas.cli.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,12 +13,23 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import ru.modas.cli.models.LoginRequest
+import ru.modas.cli.R
+import ru.modas.cli.network.RetrofitClient
 
 class LoginActivity : AppCompatActivity() {
+
+    private lateinit var loginEditText: EditText
+    private lateinit var passwordEditText: EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_login)
+
+        loginEditText = findViewById<EditText>(R.id.etLogin)
+        passwordEditText = findViewById<EditText>(R.id.etPassword)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -26,11 +37,12 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    val login = findViewById<EditText>(R.id.etLogin).text.toString()
-    val password = findViewById<EditText>(R.id.etPassword).text.toString()
-
     // Обработка кнопки "Авторизоваться"
     fun onLoginClick(view: View?) {
+
+        val login = loginEditText.text.toString()
+        val password = passwordEditText.text.toString()
+
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val response = RetrofitClient.instance.login(LoginRequest(login, password))
@@ -43,11 +55,19 @@ class LoginActivity : AppCompatActivity() {
                     }
                 } else {
                     // Обработка ошибки авторизации
-                    Toast.makeText(this@LoginActivity, "Ошибка авторизации", Toast.LENGTH_SHORT).show()
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(this@LoginActivity, "Ошибка авторизации", Toast.LENGTH_SHORT).show()
+                    }
                 }
             } catch (e: Exception) {
                 // Обработка исключения
-                Toast.makeText(this@LoginActivity, "Ошибка-исключение авторизации", Toast.LENGTH_SHORT).show()
+//                withContext(Dispatchers.Main) {
+//                    Toast.makeText(this@LoginActivity, "Ошибка-исключение авторизации", Toast.LENGTH_SHORT).show()
+//                }
+                // Временно для тестирования функционала без БД
+                withContext(Dispatchers.Main) {
+                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                }
             }
         }
     }
