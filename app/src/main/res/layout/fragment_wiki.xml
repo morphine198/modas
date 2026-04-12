@@ -35,27 +35,41 @@
                 android:padding="8dp"/>
 
             <EditText
+                android:id="@+id/searchEditText"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical"
-                android:hint="Введите артикул"
+                android:hint="Поиск по вики..."
+                android:inputType="text"
+                android:imeOptions="actionSearch"
                 android:backgroundTint="@color/bars_color"
                 android:background="@drawable/bg_style_rounded"
-                android:padding="8dp"/>
+                android:padding="8dp"
+                android:textColorHint="#888888"
+                android:textColor="@android:color/white"/>
 
         </LinearLayout>
 
-        <!-- Содержание (само wiki) -->
-        <LinearLayout
+        <!-- Содержание вики -->
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:orientation="horizontal"
-            android:padding="16dp"
-            android:backgroundTint="@color/content_color"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/bg_style_rounded"
-            android:layout_marginHorizontal="16dp"/>
+            android:backgroundTint="@color/content_color"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:id="@+id/contentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+        </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>
 

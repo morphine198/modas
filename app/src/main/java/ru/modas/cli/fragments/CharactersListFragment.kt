@@ -82,6 +82,7 @@ class CharactersListFragment : Fragment() {
         observeCharacters()
         restoreLastQuery()
 
+        // Нужно для автозаполнения персонажами
         lifecycleScope.launch {
             viewModel.addDefaultCharactersIfEmpty()
         }
