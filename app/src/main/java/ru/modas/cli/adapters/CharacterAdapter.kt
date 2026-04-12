@@ -1,18 +1,17 @@
 package ru.modas.cli.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ru.modas.cli.R
 
 class CharacterAdapter(
-    private val items: List<String>,
+    private var items: List<String>,
     private val onItemClick: (String) -> Unit
 ) : RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: android.view.View) : RecyclerView.ViewHolder(view) {
         val itemText: TextView = view.findViewById(R.id.itemText)
     }
 
@@ -23,11 +22,17 @@ class CharacterAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.itemText.text = items[position]
+        val character = items[position]
+        holder.itemText.text = character
         holder.itemView.setOnClickListener {
-            onItemClick(items[position])
+            onItemClick(character)
         }
     }
 
     override fun getItemCount(): Int = items.size
+
+    fun updateItems(newItems: List<String>) {
+        items = newItems
+        notifyDataSetChanged()
+    }
 }

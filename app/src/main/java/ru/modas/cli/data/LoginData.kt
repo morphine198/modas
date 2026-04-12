@@ -1,4 +1,4 @@
-package ru.modas.cli.models
+package ru.modas.cli.data
 
 data class LoginRequest(
     val login: String,

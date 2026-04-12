@@ -32,11 +32,19 @@
         android:id="@+id/tvAttributeModifier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="(+3)"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_green_dark"
         android:background="@drawable/bg_modifier"
         android:paddingHorizontal="12dp"
         android:paddingVertical="6dp"
-        android:text="(+3)"
-        android:textColor="@android:color/holo_green_dark"
-        android:textSize="18sp" />
+        android:layout_marginEnd="8dp" />
+
+    <ImageView
+        android:id="@+id/ivEdit"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_edit"
+        android:padding="4dp" />
 
 </LinearLayout>

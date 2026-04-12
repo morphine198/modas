@@ -13,7 +13,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import ru.modas.cli.models.LoginRequest
+import ru.modas.cli.data.LoginRequest
 import ru.modas.cli.R
 import ru.modas.cli.network.RetrofitClient
 

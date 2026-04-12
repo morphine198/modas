@@ -3,8 +3,8 @@ package ru.modas.cli.network
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
-import ru.modas.cli.models.LoginRequest
-import ru.modas.cli.models.LoginResponse
+import ru.modas.cli.data.LoginRequest
+import ru.modas.cli.data.LoginResponse
 
 interface ApiService {
     @POST("/login")
