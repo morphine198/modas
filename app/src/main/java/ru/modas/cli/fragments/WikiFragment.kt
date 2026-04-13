@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import ru.modas.cli.R
@@ -278,7 +279,24 @@ class WikiFragment : Fragment() {
         }
     }
 
+    private fun getTextColor(): Int {
+        // Получаем цвет текста из темы
+        val typedValue = android.util.TypedValue()
+        requireContext().theme.resolveAttribute(android.R.attr.textColorPrimary, typedValue, true)
+        return ContextCompat.getColor(requireContext(), typedValue.resourceId)
+    }
+
+    private fun getDividerColor(): Int {
+        // Получаем цвет разделителя из темы
+        val typedValue = android.util.TypedValue()
+        requireContext().theme.resolveAttribute(android.R.attr.textColorHint, typedValue, true)
+        return ContextCompat.getColor(requireContext(), typedValue.resourceId)
+    }
+
     private fun addArticleToContainer(article: WikiArticle) {
+        val textColor = getTextColor()
+        val dividerColor = getDividerColor()
+
         // Заголовок статьи
         val titleView = TextView(requireContext()).apply {
             text = if (article.title.contains("<font")) {
@@ -288,7 +306,7 @@ class WikiFragment : Fragment() {
             }
             textSize = 22f
             setTypeface(typeface, android.graphics.Typeface.BOLD)
-            setTextColor(resources.getColor(android.R.color.white, null))
+            setTextColor(textColor)
             setPadding(0, 32, 0, 16)
         }
         contentContainer.addView(titleView)
@@ -299,7 +317,7 @@ class WikiFragment : Fragment() {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 2
             )
-            setBackgroundColor(resources.getColor(android.R.color.darker_gray, null))
+            setBackgroundColor(dividerColor)
         }
         contentContainer.addView(divider)
 
@@ -311,7 +329,7 @@ class WikiFragment : Fragment() {
                 article.content
             }
             textSize = 16f
-            setTextColor(resources.getColor(android.R.color.white, null))
+            setTextColor(textColor)
             setPadding(0, 16, 0, 32)
             movementMethod = ScrollingMovementMethod()
         }
@@ -319,23 +337,27 @@ class WikiFragment : Fragment() {
     }
 
     private fun addSeparator() {
+        val dividerColor = getDividerColor()
+
         val separator = View(requireContext()).apply {
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 2
             )
-            setBackgroundColor(resources.getColor(android.R.color.darker_gray, null))
+            setBackgroundColor(dividerColor)
             setPadding(0, 16, 0, 16)
         }
         contentContainer.addView(separator)
     }
 
     private fun addInfoSection() {
+        val textColor = getTextColor()
+
         val infoTitle = TextView(requireContext()).apply {
             text = "Полезные советы"
             textSize = 20f
             setTypeface(typeface, android.graphics.Typeface.BOLD)
-            setTextColor(resources.getColor(android.R.color.white, null))
+            setTextColor(textColor)
             setPadding(0, 24, 0, 16)
         }
         contentContainer.addView(infoTitle)
@@ -352,17 +374,19 @@ class WikiFragment : Fragment() {
                 • Ведите записи о важных NPC и квестах
             """.trimIndent()
             textSize = 14f
-            setTextColor(resources.getColor(android.R.color.white, null))
+            setTextColor(textColor)
             setPadding(0, 0, 0, 32)
         }
         contentContainer.addView(infoContent)
     }
 
     private fun addNoResultsMessage(query: String) {
+        val textColor = getTextColor()
+
         val messageView = TextView(requireContext()).apply {
             text = "По запросу \"$query\" ничего не найдено.\n\nПопробуйте поискать по словам:\nклассы, расы, атрибуты, магия, боевая система, снаряжение"
             textSize = 16f
-            setTextColor(resources.getColor(android.R.color.white, null))
+            setTextColor(textColor)
             gravity = android.view.Gravity.CENTER
             setPadding(32, 100, 32, 0)
         }

@@ -1,7 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.MobileDDAssistant" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <item name="colorPrimary">@color/nav_bar_color</item>
+        <!-- Тёмная тема -->
+        <item name="colorBackground">@color/background_color_night</item>
+        <item name="colorContent">@color/content_color_night</item>
+        <item name="colorText">@color/text_color_night</item>
+        <item name="colorHint">#666666</item>
+        <item name="colorBars">@color/bars_color_night</item>
+        <item name="colorIcon">@color/icon_color_night</item>
+        <item name="colorButton">@color/button_color_night</item>
+        <item name="colorButtonText">@android:color/white</item>
+        <item name="colorCard">@color/cards_night</item>
+
+        <item name="android:windowBackground">?attr/colorBackground</item>
     </style>
+
+    <style name="Theme.MobileDDAssistant" parent="Base.Theme.MobileDDAssistant" />
 </resources>

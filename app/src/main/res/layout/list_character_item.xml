@@ -8,22 +8,22 @@
     android:layout_marginHorizontal="8dp"
     app:cardCornerRadius="12dp"
     app:cardElevation="4dp"
-    android:background="@color/bars_color">
+    app:cardBackgroundColor="?attr/colorCard">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="12dp"
+        app:tint="?attr/colorIcon"
         android:gravity="center_vertical">
 
-        <!-- Иконка -->
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_character"/>
+            android:src="@drawable/ic_character"
+            app:tint="?attr/colorIcon" />
 
-        <!-- Текст элемента списка -->
         <TextView
             android:id="@+id/itemText"
             android:layout_width="0dp"
@@ -32,13 +32,14 @@
             android:paddingStart="12dp"
             android:text="List item"
             android:textSize="16sp"
-            android:textColor="#000"/>
+            android:textColor="?attr/colorText"/>
 
-        <!-- Иконка стрелки -->
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_arrow_right"/>
+            android:src="@drawable/ic_arrow_right"
+            app:tint="?attr/colorIcon" />
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

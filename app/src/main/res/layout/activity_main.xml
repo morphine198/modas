@@ -6,10 +6,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color"
+    android:background="?attr/colorBackground"
     tools:context=".activities.MainActivity">
 
-    <!-- Контейнер для фрагментов -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
         android:name="ru.modas.cli.fragments.CharactersListFragment"
@@ -20,18 +19,18 @@
         app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
         tools:layout="@layout/fragment_characters_list" />
 
-    <!-- Нижняя навигационная панель -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="72dp"
-        android:backgroundTint="@color/bars_color"
         android:background="@drawable/bg_nav_style_rounded"
         app:menu="@menu/bottom_nav_menu"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="16dp"
+        app:itemIconTint="?attr/colorIcon"
+        app:itemTextColor="?attr/colorIcon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
 
+</androidx.constraintlayout.widget.ConstraintLayout>

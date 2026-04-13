@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="?attr/colorContent">
 
     <EditText
         android:id="@+id/etCharacterName"
@@ -11,6 +12,8 @@
         android:layout_height="wrap_content"
         android:hint="Имя персонажа"
         android:inputType="text"
+        android:textColor="?attr/colorText"
+        android:textColorHint="?attr/colorHint"
         android:layout_marginBottom="12dp" />
 
     <EditText
@@ -19,6 +22,8 @@
         android:layout_height="wrap_content"
         android:hint="Уровень"
         android:inputType="number"
+        android:textColor="?attr/colorText"
+        android:textColorHint="?attr/colorHint"
         android:layout_marginBottom="12dp" />
 
     <EditText
@@ -26,6 +31,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Опыт"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textColor="?attr/colorText"
+        android:textColorHint="?attr/colorHint" />
 
 </LinearLayout>

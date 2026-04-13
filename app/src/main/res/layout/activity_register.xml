@@ -5,16 +5,16 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/colorBackground"
     tools:context=".activities.RegisterActivity">
 
-    <!-- Заголовок -->
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="176dp"
         android:text="Регистрация"
-        android:textColor="@color/text_color"
+        android:textColor="?attr/colorText"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Поле Email -->
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="0dp"
@@ -32,11 +31,12 @@
         android:hint="Почта"
         android:background="@drawable/bg_edittext"
         android:padding="12dp"
+        android:textColor="?attr/colorText"
+        android:textColorHint="?attr/colorHint"
         app:layout_constraintTop_toBottomOf="@id/tvTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Поле Логин -->
     <EditText
         android:id="@+id/etLogin"
         android:layout_width="0dp"
@@ -46,11 +46,12 @@
         android:hint="Логин"
         android:background="@drawable/bg_edittext"
         android:padding="12dp"
+        android:textColor="?attr/colorText"
+        android:textColorHint="?attr/colorHint"
         app:layout_constraintTop_toBottomOf="@id/etEmail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Поле Пароль -->
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="0dp"
@@ -61,11 +62,12 @@
         android:background="@drawable/bg_edittext"
         android:padding="12dp"
         android:inputType="textPassword"
+        android:textColor="?attr/colorText"
+        android:textColorHint="?attr/colorHint"
         app:layout_constraintTop_toBottomOf="@id/etLogin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Кнопка Зарегистрироваться -->
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="0dp"
@@ -73,14 +75,13 @@
         android:layout_marginHorizontal="40dp"
         android:layout_marginVertical="16dp"
         android:text="Зарегистрироваться"
-        android:textColor="@android:color/white"
+        android:textColor="?attr/colorButtonText"
         android:background="@drawable/bg_button"
         app:layout_constraintTop_toBottomOf="@id/etPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:onClick="onRegisterClick"/>
 
-    <!-- Кнопка Вернуться -->
     <Button
         android:id="@+id/btnBack"
         android:layout_width="0dp"
@@ -88,7 +89,7 @@
         android:layout_marginHorizontal="40dp"
         android:layout_marginVertical="16dp"
         android:text="Вернуться"
-        android:textColor="@android:color/white"
+        android:textColor="?attr/colorButtonText"
         android:background="@drawable/bg_button"
         app:layout_constraintTop_toBottomOf="@id/btnRegister"
         app:layout_constraintStart_toStartOf="parent"

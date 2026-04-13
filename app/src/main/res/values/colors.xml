@@ -1,18 +1,30 @@
 <resources>
-    <!-- Основные цвета -->
+    <!-- Светлая тема -->
+    <color name="foreground_color">#FCF5FD</color>
     <color name="background_color">#D8D8D8</color>
+    <color name="content_color">#FFFFFF</color>
+    <color name="text_color">#000000</color>
     <color name="bars_color">#EAE5EE</color>
-    <color name="content_color">#FCF5FD</color>
-    <color name="icon_color">#65558E</color> <!-- Коричневый цвет для иконок -->
-    <color name="text_color">#000000</color> <!-- Коричневый цвет для текста -->
+    <color name="icon_color">#65558E</color>
     <color name="button_color">#65558E</color>
-    <color name="nav_bar_color">#65558E</color> <!-- ??? -->
+    <color name="cards">#EAE5EE</color>
+
+    <!-- Тёмная тема -->
+    <color name="foreground_color_night">#241F25</color>
+    <color name="background_color_night">#383838</color>
+    <color name="content_color_night">#1E1E1E</color>
+    <color name="text_color_night">#FFFFFF</color>
+    <color name="bars_color_night">#2C2C2C</color>
+    <color name="icon_color_night">#65558E</color>
+    <color name="button_color_night">#65558E</color>
+    <color name="cards_night">#2C2C2C</color>
+
+    <!-- Неизменяемые цвета -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="app">#fcfbb1</color>
     <color name="secondApp">#693d1d</color>
     <color name="bottomMenu">#e3b749</color>
-    <color name="cards">#f0d698</color>
     <color name="text">#333333</color>
-    <color name="transparent">#EAE5EE</color> <!-- Цвет для нижней панели навигации -->
+    <color name="transparent">#EAE5EE</color>
 </resources>

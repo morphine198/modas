@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="colorBackground" format="color"/>
+    <attr name="colorContent" format="color"/>
+    <attr name="colorText" format="color"/>
+    <attr name="colorHint" format="color"/>
+    <attr name="colorBars" format="color"/>
+    <attr name="colorIcon" format="color"/>
+    <attr name="colorButton" format="color"/>
+    <attr name="colorButtonText" format="color"/>
+    <attr name="colorCard" format="color"/>
+</resources>
